@@ -6,37 +6,33 @@ import java.util.Scanner;
 
 public class TestAlfaBank {
     
-    static int bsearch(Integer mas[], int X)
-    {
+    private static int bsearch(Integer arr[], int value) {
         int i;
-        for(i=0; i< mas.length; i++)
-        {
-            if(X > mas[i]) break;
+        for (i = 0; i < arr.length; i++) {
+            if (value > arr[i]) break;
         }
-        if(i == mas.length) return -1;
+        if (i == arr.length) return -1;
         return i;
     }
-    
+
     public static void main(String[] args) {
         System.out.println("\t\t\t\t\t*** Добро пожаловать ***\n");
-        int k, X;
-        Scanner scn = new Scanner(System.in);
         System.out.print("Введите размерность одномерного массива: ");
-        k = scn.nextInt();
-        Integer[] mas= new Integer[k];
-        for(int i = 0; i < mas.length; i++){
-            mas[i] = (int)(Math.random()*100); 
+        Scanner scn = new Scanner(System.in);
+        int length = scn.nextInt();
+        Integer[] arr = new Integer[length];
+        for (int i = 0; i < arr.length; i++) {
+            arr[i] = (int) (Math.random() * 100);
         }
         System.out.print("Массив: ");
-        Arrays.sort(mas, Collections.reverseOrder());
-        for (Integer ma : mas) {
+        Arrays.sort(arr, Collections.reverseOrder());
+        for (int ma : arr) {
             System.out.print(ma + " ");
         }
         System.out.print("\n");
-        System.out.print("Введите X: ");
-        X = scn.nextInt();
-        System.out.print("Индекс первого элемента массива, строго меньшего X (начиная с нулевого): " + TestAlfaBank.bsearch(mas, X) + "\n");
-    }
-    
+        System.out.print("Введите число: ");
+        int value = scn.nextInt();
+        System.out.print("Индекс первого элемента массива, строго меньшего введенного значения: " + TestAlfaBank.bsearch(arr, value) + "\n");
+    } 
 }
 
