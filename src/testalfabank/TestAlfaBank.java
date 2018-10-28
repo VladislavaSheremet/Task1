@@ -2,6 +2,7 @@ package testalfabank;
 
 import java.util.Arrays;
 import java.util.Collections;
+import java.util.Random;
 import java.util.Scanner;
 
 public class TestAlfaBank {
@@ -20,9 +21,10 @@ public class TestAlfaBank {
         System.out.print("Введите размерность одномерного массива: ");
         Scanner scn = new Scanner(System.in);
         int length = scn.nextInt();
+        Random r = new Random();
         Integer[] arr = new Integer[length];
         for (int i = 0; i < arr.length; i++) {
-            arr[i] = (int) (Math.random() * 100);
+            arr[i] = r.nextInt(bound: 100);
         }
         System.out.print("Массив: ");
         Arrays.sort(arr, Collections.reverseOrder());
